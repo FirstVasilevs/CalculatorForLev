@@ -21,4 +21,6 @@
     <string name="reset">AC</string>
     <string name="_00">00</string>
     <string name="erase">←</string>
+    <string name="result">Результат</string>
+    <string name="history">История</string>
 </resources>
