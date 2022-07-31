@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/tvResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/layout_margin"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/history"
+        android:id="@+id/tvHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/layout_margin"
@@ -30,7 +30,7 @@
         android:gravity="end"
         android:hint="@string/history"
         android:textSize="@dimen/textSize"
-        app:layout_constraintTop_toBottomOf="@id/result" />
+        app:layout_constraintTop_toBottomOf="@id/tvResult" />
 
 
     <com.google.android.material.button.MaterialButton
