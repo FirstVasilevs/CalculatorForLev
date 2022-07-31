@@ -1,17 +1,23 @@
 package com.geekbrains.calculatorforlev;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private Calculator calculator;
-    private TextView resultTextView;
-    private TextView historyTextView;
+    private TextView tvResult;
+    private TextView tvHistory;
     private static final String CALCULATOR_IN_BUNDLE = "CALCULATOR_IN_BUNDLE";
+
+    public MainActivity(Calculator calculator, TextView tvResult, TextView tvHistory) {
+        this.calculator = calculator;
+        this.tvResult = tvResult;
+        this.tvHistory = tvHistory;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +57,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void numberButtonClick(String currentSymbol) {
+        calculator.addSymbol(currentSymbol);
+        tvResult.setText(calculator.getValue());
 
     }
 
     private void doOperation(final String operation) {
+
+        switch (operation) {
+            case "reset":
+                calculator.reset();
+                break;
+            case "erase":
+                calculator.erase();
+                break;
+            case "equal":
+                calculator.equal();
+                break;
+            case "addition":
+                calculator.addition();
+                break;
+            case "subtraction":
+                calculator.subtraction();
+                break;
+            case "division":
+                calculator.division();
+                break;
+            case "multiplication":
+                calculator.multiplication();
+                break;
+            case "dot":
+                calculator.dot();
+                tvResult.setText(calculator.getValue());
+                return;
+        }
+        tvResult.setText(calculator.getValue());
+        tvHistory.setText(calculator.getHistoryString());
     }
 
     @Override
